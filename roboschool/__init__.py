@@ -24,6 +24,21 @@ register(
     )
 
 register(
+    id='RoboschoolSparseInvertedPendulum-v1',
+    entry_point='roboschool:RoboschoolSparseInvertedPendulum',
+    max_episode_steps=1000,
+    reward_threshold=950.0,
+    tags={ "pg_complexity": 1*1000000 },
+    )
+register(
+    id='RoboschoolSparseInvertedDoublePendulum-v1',
+    entry_point='roboschool:RoboschoolSparseInvertedDoublePendulum',
+    max_episode_steps=1000,
+    reward_threshold=9100.0,
+    tags={ "pg_complexity": 1*1000000 },
+    )
+
+register(
     id='RoboschoolReacher-v1',
     entry_point='roboschool:RoboschoolReacher',
     max_episode_steps=150,
@@ -105,6 +120,8 @@ register(
 from roboschool.gym_pendulums import RoboschoolInvertedPendulum
 from roboschool.gym_pendulums import RoboschoolInvertedPendulumSwingup
 from roboschool.gym_pendulums import RoboschoolInvertedDoublePendulum
+from roboschool.gym_sparse import RoboschoolSparseInvertedPendulum
+from roboschool.gym_sparse import RoboschoolSparseInvertedDoublePendulum
 from roboschool.gym_reacher import RoboschoolReacher
 from roboschool.gym_mujoco_walkers import RoboschoolHopper
 from roboschool.gym_mujoco_walkers import RoboschoolWalker2d
