@@ -71,7 +71,7 @@ CFLAGSD  = -std=c++11 -Wall -Wno-unused-variable -Wno-unused-function -Wno-depre
 SHARED  = -shared
 DEPENDS = -MMD -MF $@.dep
 
-EVERY_BIN=../robot-test-tool ../robot-test-tool_d ../cpp_household.so ../cpp_household_d.so
+EVERY_BIN=../cpp_household.so ../cpp_household_d.so #../robot-test-tool ../robot-test-tool_d 
 
 SIM = \
  physics-bullet.cpp \
@@ -91,8 +91,8 @@ else
 $(info Slow hardware or software render (no shadows))
 endif
 
-TWND = \
- test-tool-qt4.cpp
+# TWND = \
+ # test-tool-qt4.cpp
 
 PYTH = python-binding.cpp
 
@@ -109,17 +109,17 @@ DEP = $(patsubst %.o,%.o.dep, $(EVERY_OBJ_R) $(EVERY_OBJ_D))
 
 all: dirs $(EVERY_BIN)
 
-$(OBJDIRR)/test-tool-qt4.o: .generated/test-tool-qt4.moc
-.generated/test-tool-qt4.moc: test-tool-qt4.cpp
-	$(MOC) -o $@ $<
+# $(OBJDIRR)/test-tool-qt4.o: .generated/test-tool-qt4.moc
+#.generated/test-tool-qt4.moc: test-tool-qt4.cpp
+# 	$(MOC) -o $@ $<
 
 #../robot-test-tool: $(SIM_R) $(TWND_R)
 #../robot-test-tool_d: $(SIM_D) $(TWND_D)
 
-../robot-test-tool: $(SIM_R) $(TWND_R)
-	$(LINK) $(LINK_OUT)$@ $^ $(LIBS)
-../robot-test-tool_d: $(SIM_D) $(TWND_D)
-	$(LINK) $(LINK_OUT)$@ $^ $(LIBS)
+#../robot-test-tool: $(SIM_R) $(TWND_R)
+#	$(LINK) $(LINK_OUT)$@ $^ $(LIBS)
+#../robot-test-tool_d: $(SIM_D) $(TWND_D)
+#	$(LINK) $(LINK_OUT)$@ $^ $(LIBS)
 
 ../cpp_household.so: $(SIM_R) $(PYTH_R)
 	$(LINK) $(SHARED) $(LINK_OUT)$@ $^ $(LIBS) $(BOOST_PYTHON)
