@@ -160,6 +160,7 @@ struct World: boost::enable_shared_from_this<World> {
 
 	shared_ptr<SimpleRender::Context> cx;
 
+    void set_gravity(double gravity);
 	void bullet_init(float gravity, float timestep);
 	void bullet_step(int skip_frames);
 	void clean_everything();

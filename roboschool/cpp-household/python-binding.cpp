@@ -305,6 +305,10 @@ struct World {
 		delete window;
 	}
 
+	void set_gravity(double gravity){
+		wref->set_gravity(gravity);
+	}
+
 	void clean_everything() { wref->clean_everything(); }
 
 	Thingy load_thingy(const std::string& mesh_or_urdf_filename, const Pose& pose, double scale, double mass, int color, bool decoration_only)
@@ -683,6 +687,7 @@ void cpp_household_init()
 	.def("load_thingy", &World::load_thingy)
 	.def("new_camera_free_float", &World::new_camera_free_float)
 	.def("step", &World::step)
+	.def("set_gravity", &World::set_gravity)
 	.add_property("ts", &World::ts)
 	.def("test_window", &World::test_window)
 	.def("test_window_print", &World::test_window_print)

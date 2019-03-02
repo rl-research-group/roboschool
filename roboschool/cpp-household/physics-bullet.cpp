@@ -355,6 +355,16 @@ void Thingy::remove_from_bullet()
 	int breakpoint_here = 5;
 }
 
+void World::set_gravity(double gravity)
+{
+	b3SharedMemoryCommandHandle command = b3InitPhysicsParamCommand(client);
+	b3PhysicsParamSetGravity(command, 0, 0, -gravity);
+}
+//void World::get_gravity(double gravity) {
+//    b3SharedMemoryCommandHandle command = b3InitPhysicsParamCommand(client);
+//    b3PhysicsParamSetGravity(command, 0, 0, -gravity);
+//}
+
 void World::bullet_step(int skip_frames)
 {
 	QElapsedTimer elapsed;
