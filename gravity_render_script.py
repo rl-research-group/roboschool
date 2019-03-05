@@ -16,7 +16,7 @@ for i in range(100):
         break
     envm.render()
 
-envm.env.scene.cpp_world.set_gravity(0)
+envm.env.env.scene.cpp_world.set_gravity(0)
 print("After Gravity Change")
 for i in range(100):
     _, _, done, _ = envm.step(envm.action_space.sample())
