@@ -7,7 +7,7 @@ env_name=sys.argv[1]
 print("Using environment {}".format(env_name))
 env = gym.make('RoboschoolWalker2d-v1')
 envm = gym.wrappers.Monitor(env, env_name, video_callable=lambda x: True, force=True)
-env.reset()
+envm.reset()
 
 print("Before Gravity Change")
 for i in range(100):
