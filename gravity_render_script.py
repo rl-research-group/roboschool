@@ -11,13 +11,13 @@ env.reset()
 
 print("Before Gravity Change")
 for i in range(100):
-    env.step(env.action_space.sample())
+    envm.step(env.action_space.sample())
     # sleep(0.1)
-    env.render()
+    envm.render()
 
-env.env.scene.cpp_world.set_gravity(0)
+envm.env.scene.cpp_world.set_gravity(0)
 print("After Gravity Change")
 for i in range(100):
-    env.step(env.action_space.sample())
+    envm.step(env.action_space.sample())
     # sleep(0.1)
-    env.render()
+    envm.render()
