@@ -359,6 +359,7 @@ void World::set_gravity(double gravity)
 {
 	b3SharedMemoryCommandHandle command = b3InitPhysicsParamCommand(client);
 	b3PhysicsParamSetGravity(command, 0, 0, -gravity);
+	settings_gravity=gravity;
 }
 //void World::get_gravity(double gravity) {
 //    b3SharedMemoryCommandHandle command = b3InitPhysicsParamCommand(client);
