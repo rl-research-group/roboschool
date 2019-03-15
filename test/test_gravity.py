@@ -17,17 +17,20 @@ print("Before Gravity Change")
 for i in range(100):
     agent.act(obs_data=obs0 , cx=None)
     obs1, r, done, _ = envm.step(action)
+    obs0=obs1
     score += r
     if done:
         break
     sleep(0.1)
     envm.render("human")
 
-envm.reset()
-envm.env.env.scene.cpp_world.set_gravity(1.0)
+obs0=envm.reset()
+envm.env.env.scene.cpp_world.set_gravity(0.0)
 print("After Gravity Change")
 for i in range(100):
-    _, _, done, _ = envm.step(envm.action_space.sample())
+    agent.act(obs_data=obs0 , cx=None)
+    obs1, r, done, _ = envm.step(action)
+    obs0=obs1
     if done:
         break
     sleep(0.1)
