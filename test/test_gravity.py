@@ -30,7 +30,7 @@ while not done:
     # envm.render("human")
 
 obs0=envm.reset()
-envm.env.env.scene.cpp_world.set_gravity(0.8)
+envm.env.env.scene.cpp_world.set_gravity(7.8)
 print("After Gravity Change")
 done=False
 while not done:
